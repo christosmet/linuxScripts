@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#This script creates a new Github repository.
+#Give the new repository name as argument.
+
+#Github account name
+GITHUB_USERNAME="TediCreations"
+
+#Check argument1 to be a valid repository name.
+REPO_NAME=$1
+test -z $REPO_NAME && echo "A repository name is required." 1>&2 && exit 1
+
+#Create the repository througth the Github API.
+curl -u "$GITHUB_USERNAME" https://api.github.com/user/repos -d "{\"name\":\"$REPO_NAME\"}"
+
+echo Finished...
