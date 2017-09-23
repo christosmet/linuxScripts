@@ -1,6 +1,8 @@
 #!/bin/sh
 
-#This script creates a new Github repository.
+#This script initializes a new local git repository,
+#creates a new Github remote repository and pushes
+#local files to remote.
 #It accepts the new repository name as argument.
 
 #Github account name
@@ -26,7 +28,7 @@ git add --all
 git commit -m "First commit"
 
 ###############################################################################
-###     Connext local with remote and publish
+###     Connect local with remote and publish
 ###############################################################################
 
 git remote add origin "https://github.com/$GITHUB_USERNAME/$REPO_NAME.git"
