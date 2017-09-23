@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #This script creates a new Github repository.
-#Give the new repository name as argument.
+#It accepts the new repository name as argument.
 
 #Github account name
 GITHUB_USERNAME="TediCreations"
