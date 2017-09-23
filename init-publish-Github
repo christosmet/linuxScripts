@@ -1,0 +1,38 @@
+#!/bin/sh
+
+#This script initializes a new local git repository,
+#creates a new Github remote repository and pushes
+#local files to remote.
+#It accepts the new repository name as argument.
+
+#Github account name
+GITHUB_USERNAME="TediCreations"
+
+###############################################################################
+###     Create new Github repository
+###############################################################################
+
+#Check argument1 to be a valid repository name.
+REPO_NAME=$1
+test -z $REPO_NAME && echo "A repository name is required." 1>&2 && exit 1
+
+#Create the repository througth the Github API.
+curl -u "$GITHUB_USERNAME" https://api.github.com/user/repos -d "{\"name\":\"$REPO_NAME\"}"
+
+###############################################################################
+###     Create local repository
+###############################################################################
+
+git init
+git add --all
+git commit -m "First commit"
+
+###############################################################################
+###     Connect local with remote and publish
+###############################################################################
+
+git remote add origin "https://github.com/$GITHUB_USERNAME/$REPO_NAME.git"
+git remote -v
+git push origin master
+
+echo Finished...
