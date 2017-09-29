@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Image path name
+IMAGE="logo.jpeg"
+
+# Add image and update grub
+sudo cp -v $IMAGE /boot/grub
+sudo update-grub
